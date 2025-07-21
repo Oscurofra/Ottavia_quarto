@@ -1,0 +1,69 @@
+---
+title: "Summer_School_Padova"
+author: "F. Carabba"
+format: 
+  html:
+    self-contained: true     # 1
+    toc: true                # 2   
+    toc-title: My contents   # 3
+    toc-location: left       # 4
+    theme:
+     light: minty
+     dark: superhero  # 1
+    fontsize: 32px    # 2 customization
+#lang: it #5 il defualt è inglese
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this 
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+# first section
+
+## first subsection
+
+### first sub-subsection
+
+*plot* ![This is an image](Picture/plot1.png) 
+come metto una didascalia?
+
+## second subsection
+
+### first sub-subsection
+
+**grassetto**
+
+# second section
+
+## first subsection
+
+***grassetto corsivo***
+
+## second subsection
+
+# third section
+
+My link is [here](https://github.com/Oscurofra)
+
+<https://github.com/Oscurofra>
+
+## first subsection
+
+## second subsection
