@@ -1,10 +1,83 @@
 ---
 title: "My first web page"
-format: html
+format:
+  html:
+    self-contained: true     # 1
+    toc: true                # 2   
+    toc-title: My contents   # 3
+    toc-location: left
+    page-layout: full
+    theme:
+     light: minty
+     dark: superhero
 ---
 
-Secondo push
+# first section
+
+## first subsection
+
+::: {.grid}
+
+::: {.g-col-4}
 
 My link is [here](Summer_School_Padova.html)
 
-Provo a cambiare qualcosa
+:::
+
+::: {.g-col-8}
+
+Provo a cambiare qualcosa 
+
+::: {.panel-tabset}
+
+## Prima cosa interessante
+
+Here I present the aim of the study 
+
+## seconda cosa interessante
+
+Here I present the methods used to pursue the aim
+
+## terza cosa interessante
+
+And here I present the results
+
+:::
+
+::: {.callout-note}
+To say something general
+:::
+
+::: {.callout-tip}
+## I'm a title!
+
+Maybe a tip :)
+:::
+
+::: {.callout-caution icon="false"}
+## Pay attention!
+
+Please pay attention to whatever it is written here
+:::
+
+
+::: {.callout-warning collapse="true"}
+Just saying you should be careful
+:::
+
+:::
+
+:::
+
+:::{.column-margin} 
+
+I want this picture displayed in the margin
+
+
+![](Picture/plot1.png)
+
+:::
+
+
+
+

@@ -6,12 +6,14 @@ format:
     self-contained: true     # 1
     toc: true                # 2   
     toc-title: My contents   # 3
-    toc-location: left       # 4
+    toc-location: left
+    page-layout: full       # 4
     theme:
      light: minty
      dark: superhero  # 1
     fontsize: 32px # 2 customization
 bibliography: references.bib
+citation-location: margin
 #lang: it #5 il defualt è inglese
 ---
 
@@ -27,7 +29,7 @@ come metto una didascalia?
 
 ## second subsection
 
-ecco un altro grafico![This is an image](Picture/plot25.png)
+ecco un altro grafico ![This is an image](Picture/plot25.png)
 
 
 ### first sub-subsection
