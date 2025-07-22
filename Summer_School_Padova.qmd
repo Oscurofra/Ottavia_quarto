@@ -32,7 +32,7 @@ ecco un altro grafico![This is an image](Picture/plot25.png)
 
 ### first sub-subsection
 
-**grassetto**
+**Come posso cambiare stile di citazione? Come posso mettere un didascalia ad un'immagine? Come posso aggiungere file PDF o file xlsx?**
 
 # second section
 
