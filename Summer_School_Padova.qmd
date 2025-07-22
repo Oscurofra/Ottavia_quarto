@@ -10,7 +10,8 @@ format:
     theme:
      light: minty
      dark: superhero  # 1
-    fontsize: 32px    # 2 customization
+    fontsize: 32px # 2 customization
+bibliography: references.bib
 #lang: it #5 il defualt è inglese
 ---
 
@@ -58,6 +59,8 @@ come metto una didascalia?
 
 ## second subsection
 
+Cito altro @klomjai2015basic
+
 # third section
 
 My link is [here](https://github.com/Oscurofra)
@@ -65,5 +68,6 @@ My link is [here](https://github.com/Oscurofra)
 <https://github.com/Oscurofra>
 
 ## first subsection
+Cito qualcoosa @valero2017transcranial
 
-## second subsection
+##References
