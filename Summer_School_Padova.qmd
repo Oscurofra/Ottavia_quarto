@@ -15,26 +15,6 @@ bibliography: references.bib
 #lang: it #5 il defualt è inglese
 ---
 
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
-
-```{r}
-1 + 1
-```
-
-You can add options to executable code like this 
-
-```{r}
-#| echo: false
-2 * 2
-```
-
-The `echo: false` option disables the printing of code (only output is displayed).
 
 # first section
 
@@ -47,13 +27,16 @@ come metto una didascalia?
 
 ## second subsection
 
-![This is an image](Picture/plot25.png) 
+ecco un altro grafico![This is an image](Picture/plot25.png)
+
 
 ### first sub-subsection
 
 **grassetto**
 
 # second section
+
+Ecco la mia tesi magistrale <https://hdl.handle.net/20.500.12608/74649>
 
 ## first subsection
 
