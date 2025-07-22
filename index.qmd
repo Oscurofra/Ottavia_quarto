@@ -5,9 +5,6 @@ format: html
 
 Secondo push
 
-here it is my link <Summer_School_Padova.html>
-
 My link is [here](Summer_School_Padova.html)
-
 
 Provo a cambiare qualcosa
