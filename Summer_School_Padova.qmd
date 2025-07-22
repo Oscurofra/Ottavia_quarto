@@ -47,6 +47,8 @@ come metto una didascalia?
 
 ## second subsection
 
+![This is an image](Picture/plot25.png) 
+
 ### first sub-subsection
 
 **grassetto**
@@ -69,5 +71,3 @@ My link is [here](https://github.com/Oscurofra)
 
 ## first subsection
 Cito qualcoosa @valero2017transcranial
-
-##References
