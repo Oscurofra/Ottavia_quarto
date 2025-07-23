@@ -3,6 +3,10 @@ title: "Summer_School_Padova"
 author: "F. Carabba"
 format: 
   html:
+    code-tools: 
+     source: true
+     toggle: false
+     caption: This is my code
     self-contained: true     # 1
     toc: true                # 2   
     toc-title: My contents   # 3
@@ -14,13 +18,41 @@ format:
     fontsize: 32px # 2 customization
 bibliography: references.bib
 citation-location: margin
+code-fold: true
+code-summary: See code
 #lang: it #5 il defualt è inglese
 ---
 
 
 # first section
 
+
+<!-- #| echo: fenced #nel prodotto finale non solo mostra codice R ma anche le impostazioni finali -->
+<!-- #| eval: false # we don't want to execute the code -->
+<!-- #| include: false #codice eseguito ma non mostra ne codice ne output -->
+
+```{r}
+3+3
+```
+
+
 ## first subsection
+
+```{r}
+#| echo: fenced
+
+data<-read.csv("Data/dataset.csv")
+
+```
+
+```{r}
+head(data)
+```
+
+```{r}
+summary(data)
+```
+
 
 ### first sub-subsection
 
