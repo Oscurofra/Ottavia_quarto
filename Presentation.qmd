@@ -12,6 +12,8 @@ format:
     footer: "Presentations"
     slide-number:  c/t
     show-slide-number: all
+    theme: [serif, custom.scss]
+    echo: true
 ---
 
 # Introduction
@@ -48,6 +50,14 @@ When you click the **Render** button a document will be generated that includes:
 -   Content authored with markdown
 -   Output from executable code
 
+```{r}
+library(dplyr)
+library(ggplot2)
+library(plotly)
+library(shiny)
+```
+
+
 ## Code
 
 When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
@@ -62,3 +72,191 @@ When you click the **Render** button a presentation will be generated that inclu
 ## A new slide {.smaller footer="false"}
 
 vediamo se è più piccolo
+
+
+## slide di un'immagine
+la metto nella posizione che voglio io 
+
+![](Picture/plot25.png){.absolute top=200 left=0 width="350" height="300"}
+
+
+## immagine staked
+
+:::{.r-stack}
+![](Picture/plot25.png){.fragment width="350" height="300"}
+
+![](Picture/Screenshot 2024-09-01 143156.png){.fragment width="450" height="250"}
+
+![](Picture/Screenshot 2024-08-25 140045.png){.fragment width="500" height="400"}
+
+:::
+
+
+## immagine staked pro
+
+::: {.fragment .highlight-green}
+This text will turn green
+:::
+
+
+
+:::{.r-stack}
+::: {.fragment .fade-out}
+![](Picture/plot25.png){width="350" height="300"}
+:::
+
+::: {.fragment .fade-in-then-out}
+![](Picture/Screenshot 2024-09-01 143156.png){width="450" height="250"}
+:::
+
+
+::: {.fragment}
+![](Picture/Screenshot 2024-08-25 140045.png){width="350" height="300"}
+:::
+:::
+
+## Slide speaker note
+
+Let's say you are presenting something that is really complicated and you need some boost of confidence
+
+::: {.notes}
+You can use the speaker notes to help you "survive" the presentation!
+:::
+
+
+##Footnotes: Code
+
+My blood brother is an immigrant, a beautiful immigrant ^[This song is [Danny Nedelko](https://youtu.be/QkF_G-RF66M?si=F11TuQYUtWVz0L9G) by IDLES]
+
+
+::: aside
+Fear leads to panic, panic leads to pain
+
+Pain leads to anger, anger leads to hate
+
+Yeah, yeah, yeah, yeah, ah, ah, ah, ah
+
+Yeah, yeah, yeah, yeah, ah, ah, ah, ah
+
+[Danny Nedelko](https://youtu.be/QkF_G-RF66M?si=F11TuQYUtWVz0L9G)
+:::
+
+## Code highight
+
+```{r}
+#| echo: true
+#| fig-align: center
+#| code-line-numbers: "|2,3|"
+
+mtcars %>%                               
+  ggplot( aes(mpg, hp)) +   
+  geom_point()             
+```
+
+
+
+## Code animation {auto-animate="true"}
+
+```{r}
+#| echo: true
+# Create a scatterplot with a smoothing function
+mtcars %>%                               
+  ggplot( aes(mpg, hp)) +   
+  geom_point() 
+```
+
+## Code animation {auto-animate="true"}
+
+```{r}
+#| echo: true
+# Create a scatterplot with a smoothing function
+mtcars %>%                               
+  ggplot( aes(mpg, hp, color = gear)) +   
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+
+
+## Output location: Dealyed along the code column-fragment
+
+```{r}
+#| fig-align: center
+#| output-location: column-fragment
+#| code-line-numbers: "|3|"
+
+mtcars %>%                               
+  ggplot( aes(mpg, hp, color = gear)) +   
+  geom_point() + 
+  geom_smooth(method = "lm")     
+```
+
+## Output location: Next slide slide
+
+```{r}
+
+#| fig-align: center
+#| output-location: slide
+#| code-line-numbers: "|3|"
+
+mtcars %>%                               
+  ggplot( aes(mpg, hp, color = gear)) +   
+  geom_point() + 
+  geom_smooth(method = "lm")      
+```
+
+
+## Output location: Along the code column
+
+```{r}
+#| echo: true
+#| fig-align: center
+#| output-location: column
+#| code-line-numbers: "|3|"
+
+mtcars %>%                               
+  ggplot( aes(mpg, hp, color = gear)) +   
+  geom_point() + 
+  geom_smooth(method = "lm")      
+```
+
+
+
+# Interactivity
+
+## Basics of interactivity with ggplotly
+
+```{r}
+graph = mtcars %>%
+  ggplot( aes(mpg, hp, color = gear)) +
+  geom_point() +
+  geom_smooth()
+ggplotly(graph)
+```
+
+
+#shiny app
+
+## 1 shiny app
+
+```{r}
+ui = fluidPage(
+selectInput(inputId = "mySelection", 
+            label = h3("Select box"),
+    choices = list("Choice 1" = 1, "Choice 2" = 2, "Choice 3" = 3),
+    selected = 1), 
+  
+  verbatimTextOutput(
+  outputId = "myOutput"
+)
+  
+)
+
+server = function(input, output) {
+  output$myOutput = renderText({
+    paste(paste("This is my choice"), input$mySelection)
+  })
+}
+
+shinyApp(ui, server)  
+```
+
