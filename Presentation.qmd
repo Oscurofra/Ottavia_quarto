@@ -1,14 +1,45 @@
 ---
 title: "My first presentation"
-author: "Francesco Carabba"
-format: revealjs
+author:
+  name: "Francesco Carabba"
+  email: "francesco.carabba@unibz.it"
+affiliation: "Università di Bolzano"
+format:
+  revealjs:
+    self-contained: true
+    incremental: true
+    scrollable: true           
+    footer: "Presentations"
+    slide-number:  c/t
+    show-slide-number: all
 ---
 
 # Introduction
 
 ## Quarto
 
-Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+::: {.nonincremental}
+
+- I'm a list
+
+- But I'm not incremental 
+
+- Even though I'm supposed to be 
+
+:::
+
+
+You can force incremental contents (if you have incremental: false in the YAML)
+
+. . . 
+
+By pausing the contents
+
+. . . 
+
+This is how you do it: 
+
+
 
 ## Bullets
 
@@ -28,4 +59,6 @@ When you click the **Render** button a presentation will be generated that inclu
 
 # Other section
 
-## A new slide
+## A new slide {.smaller footer="false"}
+
+vediamo se è più piccolo
