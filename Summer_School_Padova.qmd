@@ -20,6 +20,8 @@ bibliography: references.bib
 citation-location: margin
 code-fold: true
 code-summary: See code
+warning: false
+code-annotations: hover
 #lang: it #5 il defualt è inglese
 ---
 
@@ -39,7 +41,16 @@ code-summary: See code
 ## first subsection
 
 ```{r}
-#| echo: fenced
+#| include: false
+
+library(ggplot2)
+library(kableExtra)
+library(DT)
+```
+
+
+```{r}
+#| include: false
 
 data<-read.csv("Data/dataset.csv")
 
@@ -50,9 +61,21 @@ head(data)
 ```
 
 ```{r}
+#| echo: false
+
 summary(data)
+
 ```
 
+```{r}
+#| echo: fenced
+
+str(data) # <1>
+summary(data)# <1>
+
+```
+
+1. bla bla
 
 ### first sub-subsection
 
@@ -68,6 +91,47 @@ ecco un altro grafico ![This is an image](Picture/plot25.png)
 
 **Come posso cambiare stile di citazione? Come posso mettere un didascalia ad un'immagine? Come posso aggiungere file PDF o file xlsx?**
 
+
+
+```{r}
+kable(mtcars) %>%
+  scroll_box(height = "450px", width = "100%")
+```
+
+
+
+```{r}
+datatable(mtcars)
+```
+
+
+
+
+
+@tbl-iris illustrates a table
+
+
+```{r}
+#| echo: fenced
+#| label: tbl-iris
+#| tbl-cap: "Iris Data"
+#| code-line-numbers: "|2|3|"
+
+kable(head(iris))
+```
+
+
+```{r}
+#| lst-label: lst-basicPlot1
+#| lst-cap: Basic use of the plot() function
+
+plot(cars)
+```
+
+@lst-basicPlot1 illustrates a basic use of the function plot()
+
+
+
 # second section
 
 Ecco la mia tesi magistrale <https://hdl.handle.net/20.500.12608/74649>
@@ -75,6 +139,47 @@ Ecco la mia tesi magistrale <https://hdl.handle.net/20.500.12608/74649>
 ## first subsection
 
 ***grassetto corsivo***
+
+Images & Graphs
+
+@fig-linea_mentale_numerica linea mentale numerica
+
+```{r}
+#| out-width: 100%
+#| fig-align: center
+#| fig-cap: linea mentale numerica due modelli
+#| fig-cap-location: bottom
+#| label: fig-linea_mentale_numerica
+knitr::include_graphics("Picture/Screenshot 2024-09-01 143156.png")
+```
+
+
+@fig-plot1 a plot for our beatiful dataframe
+
+
+
+
+```{r}
+#| out-width: 100%                                
+#| fig-align: center                             
+#| fig-cap: A plot for the data dataframe
+#| fig-cap-location: bottom
+#| label: fig-plot1
+#| echo: true
+#| lst-label: lst-basicPlot2
+#| lst-cap: Basic use of the ggplot() function
+
+
+ggplot(data, 
+       aes(x = flexibility, y = anxiety, color = mindfulness))+
+  geom_point()+
+    theme(
+    axis.title.x = element_text(size = 16),  # ingrandisce il label dell'asse X
+    axis.title.y = element_text(size = 16),  # ingrandisce il label dell'asse Y
+  )
+```
+
+@lst-basicPlot2 illustrates a basic use of the function plot()
 
 ## second subsection
 
@@ -88,5 +193,116 @@ My link is [here](https://github.com/Oscurofra)
 
 ## first subsection
 Cito qualcoosa @valero2017transcranial
+
+
+
+
+#linear model
+
+this is a linear model "equazione del modello lineare"
+
+```{r}
+#| column: margin 
+#| lst-cap: This is a lm in R 
+lm(hp ~ mpg*am, data = mtcars)
+```
+
+
+
+Mettere unq tabella a fianco di un grafico, due immagini a fianco, tue tabelle a fianco
+
+
+In alternativa a out-width: 100% possiamo usare column: screen-inset-shaded che lo spalma su tutto lo schermo 
+
+
+```{r}
+#| out-width: 100%
+#| layout-ncol: 2
+
+
+
+ggplot(data, 
+       aes(x = flexibility, y = anxiety, color = mindfulness))+
+  geom_point()+
+    theme(
+    axis.title.x = element_text(size = 16),  # ingrandisce il label dell'asse X
+    axis.title.y = element_text(size = 16),  # ingrandisce il label dell'asse Y
+  )
+
+kable(data) %>%
+  scroll_box(height = "450px", width = "100%")
+
+
+```
+
+
+
+@fig-plotsModels illustrates different things. @fig-plotsModels-1 illustrates the data, @fig-plotsModels-2 illustrates the polynomial model
+```{r}
+#| label: fig-plotsModels
+#| out-width: 100%
+#| fig-align: center
+#| layout-ncol: 2
+#| fig-cap: "One dataset, different models" 
+#| fig-subcap:
+#|   - "The data"
+#|   - "Polynomial"
+ 
+
+
+ggplot(data, 
+       aes(x = flexibility, y = anxiety, color = mindfulness))+
+  geom_point()+
+    theme(
+    axis.title.x = element_text(size = 16),  # ingrandisce il label dell'asse X
+    axis.title.y = element_text(size = 16),  # ingrandisce il label dell'asse Y
+  )
+
+ggplot(data, 
+       aes(x = flexibility, y = anxiety, color = mindfulness))+
+  geom_point()+
+  geom_smooth()+
+    theme(
+    axis.title.x = element_text(size = 16),  # ingrandisce il label dell'asse X
+    axis.title.y = element_text(size = 16),  # ingrandisce il label dell'asse Y
+  )
+```
+
+
+
+@tbl-tables presents two datasets: @tbl-tables-1 is cars and @tbl-tables-2 is pressure
+
+```{r}
+#| label: tbl-tables
+#| out-width: 100%
+#| tbl-cap: "Datasets"
+#| tbl-subcap: 
+#|   - "My data"
+#|   - "Other data (matcars)"
+#| layout-ncol: 2
+
+kable(data) %>%
+  scroll_box(height = "700px", width = "100%")
+
+
+kable(mtcars) %>%
+  scroll_box(height = "700px", width = "100%")
+```
+
+
+
+```{r}
+#| out-width: 100%
+#| fig-column: margin
+ggplot(data, 
+       aes(x = flexibility, y = anxiety, color = mindfulness))+
+  geom_point()+
+    theme(
+      axis.title.x = element_text(size = 16),  
+      axis.title.y = element_text(size = 16),  
+  )
+
+kable(head(data))
+```
 
 
