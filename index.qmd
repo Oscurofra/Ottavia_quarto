@@ -28,7 +28,7 @@ This is my presentation [here](Presentation.html)
 
 
 
-This is my presentation [here](My_second_presentation.pdf)
+This is my second [presentation](My_second_presentation.pdf)
  
 :::
 
