@@ -1,11 +1,64 @@
 ---
-title: "Second_presentation"
+title: "Valutazione neuropsicologica"
 author: "Francesco Carabba"
-format: beamer
+format:
+  beamer:
+    slide-level: 3
+    theme: Montpellier
+    colortheme: dove
+    code-annotations: below
+    navigation: horizontal
+    header-includes: |
+       \setbeamertemplate{navigation symbols}{}
+       \setbeamertemplate{footline}[page number]
+execute: 
+  echo: true
 ---
 
-## New Slide
-- First element
-- Second element
-## Another slide
-Some text in my slide! Yay!
+```{r}
+ #| include: false
+
+library(dplyr)
+library(ggplot2)
+library(kableExtra)
+```
+
+
+# Esploriamo i dati
+
+## Vediamo i dati
+
+### Con una tabella
+
+A table of our data is here @tbl-mtcars1
+ 
+```{r}
+#| label: tbl-mtcars1
+#| tbl-cap: "This is a table!"
+
+kable(mtcars[1:3,1:3], booktabs = TRUE) %>%  # <1>
+kable_styling(latex_options = "hold_position") # <2>
+```
+1. Questo fa questo
+2. Questo fa questo 
+
+
+### Con un bel grafico
+
+I dati sono presentati in figura @fig-figura1
+
+```{r}
+#| label: fig-figura1
+#| fig-cap: "This is a plot"
+#| out-width: 50%
+mtcars %>%                               
+  ggplot( aes(mpg, hp)) +   
+  geom_point() 
+```
+
+
+## seconda subsection
+
+### terza slide
+
+# seconda sezione
