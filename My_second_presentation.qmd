@@ -16,7 +16,7 @@ execute:
 ---
 
 ```{r}
- #| include: false
+#| include: false
 
 library(dplyr)
 library(ggplot2)
